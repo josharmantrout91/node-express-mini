@@ -83,8 +83,9 @@ server.delete("/users/:id", (req, res) => {
 
 //PUT /api/users/:id Updates the user with the specified id using data from the request body. Returns the modified document, NOT the original.
 server.put("/users/:id", (req, res) => {
-  const id = req.params;
+  const { id } = req.params;
   const changes = req.body;
+  console.log(id);
 
   db.update(id, changes)
     .then(updated => {
